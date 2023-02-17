@@ -49,7 +49,8 @@ class Anthroponym extends Core
     {        
         // Жіночі прізвища
         if (self::isFemale($gender)) {
-            if ( in_array(mb_substr($surname, -1), self::$consonants) || (mb_substr($surname, -1) == 'о') ) {
+            $ending = mb_substr($surname, -1);
+            if ( in_array($ending, self::$consonants) || ($ending == 'о') || ($ending == 'й') ) {
                return $surname;
             }
             
