@@ -141,11 +141,6 @@ class Core
 
         // Чоловічі і жіночі імена - 1 група
         if (self::isFemale($gender)) {
-            
-            $ending = mb_substr($name, -2);
-            if (in_array($ending,['ва', 'ка'])) {
-                return 'female_adjective_1'; 
-            }
 
             $ending = mb_substr($name, -1);
             if (in_array($ending , ['а', 'я'])) {

@@ -52,7 +52,8 @@ class Anthroponym extends Core
             if ( in_array(mb_substr($surname, -1), self::$consonants) || (mb_substr($surname, -1) == 'о') ) {
                return $surname;
             }
-            if (mb_substr($surname, -1) == 'а') {
+            
+            if (in_array(mb_substr($surname, -3), ['ова', 'іна', 'ька'])) {
                 if (!in_array($case, ['nominative', 'vocative'])) {
                     return mb_substr($surname, 0, -1) . self::$endings['female_adjective_1'][$case];
                 }
