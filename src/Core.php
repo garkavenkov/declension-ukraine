@@ -140,7 +140,10 @@ class Core
         $gender = mb_strtolower($gender);
 
         // Чоловічі і жіночі імена - 1 група
-        if (self::isFemale($gender)) {
+        if (self::isFemale($gender)) {            
+            if (in_array(mb_substr($name, -3), ['ова', 'іна', 'ька'])) {
+                return 'female_adjective_1';
+            }
 
             $ending = mb_substr($name, -1);
             if (in_array($ending , ['а', 'я'])) {
@@ -158,7 +161,12 @@ class Core
         
         // Чоловічі назви  - 2 група        
         if (self::isMale($gender)) {
-          
+
+            $ending = mb_substr($name, -2,2);            
+            if (in_array($ending, ['ий', 'ій'])) {                
+                return 'male_adjective_1';
+            }    
+
             $ending = mb_substr($name, -1);
             if (in_array($ending, self::$consonants) ) {
                 if (in_array($ending, ['ж', 'ч', 'ш'])) {
@@ -279,21 +287,21 @@ class Core
 
         if ($group == 'male_adjective_1') {        
             $ending = mb_substr($name, -2,2);            
-            if (in_array($ending, ['ий', 'ій'])) {
+            // if (in_array($ending, ['ий', 'ій'])) {
                 if (!in_array($case, ['nominative', 'vocative'])) {
                     return mb_substr($name, 0, -2) . self::$endings['male_adjective_1'][$case];
                 }
                 return $name;
-            }           
+            // }           
         }
         
         if ($group == 'female_adjective_1') {
-            if (in_array(mb_substr($name, -2,2), ['ка', 'ва'])) {
+            // if (in_array(mb_substr($name, -2,2), ['ка', 'ва'])) {
                 if (!in_array($case, ['nominative', 'vocative'])) {
                     return mb_substr($name, 0, -1) . self::$endings['female_adjective_1'][$case];
                 }
                 return $name;
-            }
+            // }
         }
     }
  

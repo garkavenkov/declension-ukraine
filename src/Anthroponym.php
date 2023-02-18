@@ -54,12 +54,12 @@ class Anthroponym extends Core
                return $surname;
             }
             
-            if (in_array(mb_substr($surname, -3), ['ова', 'іна', 'ька'])) {
-                if (!in_array($case, ['nominative', 'vocative'])) {
-                    return mb_substr($surname, 0, -1) . self::$endings['female_adjective_1'][$case];
-                }
-                return $surname;
-            }
+            // if (in_array(mb_substr($surname, -3), ['ова', 'іна', 'ька'])) {
+            //     if (!in_array($case, ['nominative', 'vocative'])) {
+            //         return mb_substr($surname, 0, -1) . self::$endings['female_adjective_1'][$case];
+            //     }
+            //     return $surname;
+            // }
             return self::makeNameEnding($surname, $gender, $case);
         } 
 
@@ -100,7 +100,7 @@ class Anthroponym extends Core
             $ending = mb_substr($surname, -2);
             // Прізвища на -ий, -ій
             if (in_array($ending, ['ий', 'ій'])){
-                if ($case !== 'nominative') {
+                if (!in_array($case, ['nominative', 'vocative'])) {
                     return mb_substr($surname, 0, -2) . self::$endings['male_adjective_1'][$case];
                 }
                 return $surname;  
