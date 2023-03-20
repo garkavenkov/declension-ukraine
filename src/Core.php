@@ -139,26 +139,26 @@ class Core
         // Convert gender to lower case
         $gender = mb_strtolower($gender);
 
-        // Чоловічі і жіночі імена - 1 група
+        // Жіночі прикметникового типу
         if (self::isFemale($gender)) {            
             if (in_array(mb_substr($name, -3), ['ова', 'іна', 'ька'])) {
                 return 'female_adjective_1';
-            }
-
-            $ending = mb_substr($name, -1);
-            if (in_array($ending , ['а', 'я'])) {
-                if ($ending == 'а') {
-                    return '1h';        // Перша тверда
-                } else {                
-                    if (mb_substr($name, -2, 1) == 'і') {
-                        return '1si';       // Перша м'яка з і
-                    } else {
-                        return '1s';        // Перша м'яка
-                    }
+            }           
+        }
+        // Чоловічі і жіночі імена - 1 група
+        $ending = mb_substr($name, -1);
+        if (in_array($ending , ['а', 'я'])) {
+            if ($ending == 'а') {
+                return '1h';        // Перша тверда
+            } else {                
+                if (mb_substr($name, -2, 1) == 'і') {
+                    return '1si';       // Перша м'яка з і
+                } else {
+                    return '1s';        // Перша м'яка
                 }
             }
         }
-        
+
         // Чоловічі назви  - 2 група        
         if (self::isMale($gender)) {
 
