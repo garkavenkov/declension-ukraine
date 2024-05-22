@@ -15,7 +15,7 @@ class Anthroponym extends Core
             'genetive'      =>  'а',
             'dative'        =>  'у',
             'accusative'    =>  'а',
-            'instumental'   =>  'ем',
+            'instrumental'  =>  'ем',
             'locative'      =>  'і',
             'vocative'      =>  'у',
         ],
@@ -24,12 +24,11 @@ class Anthroponym extends Core
             'genetive'      =>  'и',
             'dative'        =>  'і',
             'accusative'    =>  'у',
-            'instumental'   =>  'ою',
+            'instrumental'  =>  'ою',
             'locative'      =>  'і',
             'vocative'      =>  'о',
         ],
     ];
-
 
     private static function makePatronimycEnding(string $patronymic, string $gender, string $case): string
     {        

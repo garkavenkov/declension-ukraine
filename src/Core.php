@@ -7,12 +7,12 @@ class Core
     protected static $vowels = ['a', 'е', 'и', 'і', 'о', 'у', 'я', 'є', 'ї', 'ю'];
     protected static $consonants = ['б', 'в', 'г', 'ґ', 'д', 'ж', 'з', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ'];
     
-    protected static $cases = [
+    public static $cases = [
         'nominative'    =>  ['називний',    'н', 'nom', 'n'],
         'genetive'      =>  ['родовий',     'р', 'gen', 'g'],
         'dative'        =>  ['давальний',   'д', 'dat', 'd'],
         'accusative'    =>  ['знахідний',   'з', 'acc', 'a'],
-        'instumental'   =>  ['орудний',     'о', 'ins', 'i'],
+        'instrumental'  =>  ['орудний',     'о', 'ins', 'i'],
         'locative'      =>  ['місцевий',    'м', 'loc', 'l'],
         'vocative'      =>  ['кличний',     'к', 'voc', 'v'],
     ];
@@ -23,7 +23,7 @@ class Core
             'genetive'      =>  'и',
             'dative'        =>  'і',
             'accusative'    =>  'у',
-            'instumental'   =>  'ою',
+            'instrumental'  =>  'ою',
             'locative'      =>  'і',
             'vocative'      =>  'о',
         ],
@@ -32,7 +32,7 @@ class Core
             'genetive'      =>  'і',
             'dative'        =>  'і',
             'accusative'    =>  'ю',
-            'instumental'   =>  'ею',
+            'instrumental'  =>  'ею',
             'locative'      =>  'і',
             'vocative'      =>  'е',
         ],
@@ -41,7 +41,7 @@ class Core
             'genetive'      =>  'ї',
             'dative'        =>  'ї',
             'accusative'    =>  'ю',
-            'instumental'   =>  'єю',
+            'instrumental'  =>  'єю',
             'locative'      =>  'ї',
             'vocative'      =>  'є',
         ],
@@ -50,7 +50,7 @@ class Core
             'genetive'      =>  'а',
             'dative'        =>  'у',
             'accusative'    =>  'а',
-            'instumental'   =>  'ом',
+            'instrumental'  =>  'ом',
             'locative'      =>  'ові',
             'vocative'      =>  'е',
         ],
@@ -59,7 +59,7 @@ class Core
             'genetive'      =>  'я',
             'dative'        =>  'еві',
             'accusative'    =>  'я',
-            'instumental'   =>  'ем',
+            'instrumental'  =>  'ем',
             'locative'      =>  'еві',
             'vocative'      =>  'ю',
         ],
@@ -68,7 +68,7 @@ class Core
             'genetive'      =>  'я',
             'dative'        =>  'єві',
             'accusative'    =>  'я',
-            'instumental'   =>  'єм',
+            'instrumental'  =>  'єм',
             'locative'      =>  'єві',
             'vocative'      =>  'ю',
         ],
@@ -77,7 +77,7 @@ class Core
             'genetive'      =>  'а',
             'dative'        =>  'еві',
             'accusative'    =>  'а',
-            'instumental'   =>  'ем',
+            'instrumental'  =>  'ем',
             'locative'      =>  'еві',
             'vocative'      =>  'е',
         ],
@@ -86,7 +86,7 @@ class Core
             'genetive'      =>  'і',
             'dative'        =>  'і',
             'accusative'    =>  '',
-            'instumental'   =>  'ю',
+            'instrumental'  =>  'ю',
             'locative'      =>  'і',
             'vocative'      =>  'е',
         ],
@@ -96,7 +96,7 @@ class Core
             'genetive'      =>  'ого',
             'dative'        =>  'ому',
             'accusative'    =>  'ого',
-            'instumental'   =>  'им',
+            'instrumental'  =>  'им',
             'locative'      =>  'ому',
             'vocative'      =>  '',
         ],
@@ -106,7 +106,7 @@ class Core
             'genetive'      =>  'а',
             'dative'        =>  'у',
             'accusative'    =>  'а',
-            'instumental'   =>  'им',
+            'instrumental'  =>  'им',
             'locative'      =>  'і',
             'vocative'      =>  'е',
         ],
@@ -116,7 +116,7 @@ class Core
             'genetive'      =>  'ої',
             'dative'        =>  'ій',
             'accusative'    =>  'у',
-            'instumental'   =>  'ою',
+            'instrumental'  =>  'ою',
             'locative'      =>  'ій',
             'vocative'      =>  '',
         ],    
@@ -132,6 +132,11 @@ class Core
     protected static function isMale($gender): bool
     {
         return in_array($gender, ['male', 'm', 'чоловіча', 'ч']);
+    }
+
+    protected static function isNeuter($gender): bool
+    {
+        return in_array($gender, ['neuter', 'n', 'середній', 'с']);
     }
 
     protected static function getNameDeclensionGroup(string $name, string $gender)
