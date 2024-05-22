@@ -3,11 +3,11 @@
 namespace DeclensionUkrainian;
 
 use DeclensionUkrainian\Core;
-use DeclensionUkrainian\Declensioner;
+use DeclensionUkrainian\DeclensionerTrait;
 
 class Toponym extends Core
 {
-    use Declensioner;
+    use DeclensionerTrait;
     
     private static function declension($toponym, $case)
     {

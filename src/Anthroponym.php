@@ -3,11 +3,12 @@
 namespace DeclensionUkrainian;
 
 use DeclensionUkrainian\Core;
-use DeclensionUkrainian\Declensioner;
+use DeclensionUkrainian\GenderTrait;
+use DeclensionUkrainian\DeclensionerTrait;
 
 class Anthroponym extends Core
 {
-    use Declensioner;
+    use DeclensionerTrait, GenderTrait;
    
     private static $patronymic = [
         'male' => [

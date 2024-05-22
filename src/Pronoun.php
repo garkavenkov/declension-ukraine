@@ -3,11 +3,12 @@
 namespace DeclensionUkrainian;
 
 use DeclensionUkrainian\Core;
-use DeclensionUkrainian\Declensioner;
+use DeclensionUkrainian\GenderTrait;
+use DeclensionUkrainian\DeclensionerTrait;
 
 class Pronoun extends Core
 {
-    use Declensioner;
+    use DeclensionerTrait, GenderTrait;
 
     // Available name for first form
     private static $first_form = [

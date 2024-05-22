@@ -2,8 +2,13 @@
 
 namespace DeclensionUkrainian;
 
+use DeclensionUkrainian\GenderTrait;
+
 class Core
 {    
+
+    use GenderTrait;
+
     protected static $vowels = ['a', 'е', 'и', 'і', 'о', 'у', 'я', 'є', 'ї', 'ю'];
     protected static $consonants = ['б', 'в', 'г', 'ґ', 'д', 'ж', 'з', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ'];
     
@@ -124,21 +129,6 @@ class Core
     ];
     
    
-    protected static function isFemale($gender): bool
-    {
-        return in_array($gender, ['female', 'f', 'жіноча', 'ж']);
-    }
-
-    protected static function isMale($gender): bool
-    {
-        return in_array($gender, ['male', 'm', 'чоловіча', 'ч']);
-    }
-
-    protected static function isNeuter($gender): bool
-    {
-        return in_array($gender, ['neuter', 'n', 'середній', 'с']);
-    }
-
     protected static function getNameDeclensionGroup(string $name, string $gender)
     {
         // Convert gender to lower case

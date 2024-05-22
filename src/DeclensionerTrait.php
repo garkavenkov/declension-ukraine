@@ -2,7 +2,7 @@
 
 namespace DeclensionUkrainian;
 
-trait Declensioner
+trait DeclensionerTrait
 {
     public static function inNominative($name)
     {   
